@@ -24,7 +24,7 @@ function showCars(dataCars) {
     let container = document.getElementById('cars-container');
     container.innerHTML = '';
     dataCars.forEach((car) => {
-        const htmlCar = `<div class="col-md-4">
+        const htmlCar = `<div class="col-md-4 d-inline-flex">
                             <div class="card" style="width: 18rem;">
                                 <img src="${car.fotografia}" class="img-thumbnail" alt="...">
                                 <div class="card-body">
