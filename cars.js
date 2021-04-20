@@ -3,19 +3,28 @@ const cars = [
         id: 1,
         marca: 'Ford',
         modelo: 'Chrysler',
-        color: 'azul',
-        año: 2010,
+        color: 'naranja',
+        año: 2018,
         precio: 25000,
-        fotografia: 'https://images.pexels.com/photos/3156482/pexels-photo-3156482.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        fotografia: 'https://images.pexels.com/photos/2631489/pexels-photo-2631489.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     },
     {
         id: 2,
-        marca: 'Nissan',
-        modelo: 'Tsuru',
+        marca: 'Volskwagen',
+        modelo: 'Golf',
         color: 'azul',
-        año: 2010,
-        precio: 25000,
-        fotografia: 'https://images.pexels.com/photos/3156482/pexels-photo-3156482.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        año: 2011,
+        precio: 30000,
+        fotografia: 'https://images.pexels.com/photos/5763082/pexels-photo-5763082.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    },
+    {
+        id: 3,
+        marca: 'Volskwagen',
+        modelo: 'Golf',
+        color: 'negro',
+        año: 2019,
+        precio: 300000,
+        fotografia: 'https://images.pexels.com/photos/5763081/pexels-photo-5763081.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     },
 ];
 const edit = false;
@@ -26,7 +35,7 @@ function showCars(dataCars) {
     dataCars.forEach((car) => {
         const htmlCar = `<div class="col-md-4 d-inline-flex">
                             <div class="card" style="width: 18rem;">
-                                <img src="${car.fotografia}" class="img-thumbnail" alt="...">
+                                <img src="${car.fotografia}" class="roundend img-thumbnail" alt="...">
                                 <div class="card-body">
                                   <h5 class="card-title text-center">${car.marca}</h5>
                                   <span>Modelo: ${car.modelo}</span><br>
@@ -34,7 +43,7 @@ function showCars(dataCars) {
                                   <span>Año: ${car.año}</span><br>                                  
                                   <span>Precio: $${car.precio}</span>
                                 </div>
-                                <div class="d-flex py-md-5">
+                                <div class="position-relative ml-2">
                                     <button class="btn btn-warning" onclick="editCar(${car.id})">Editar Carro</button>
                                     <button class="btn btn-danger" onclick="deleteCar(${car.id})">Borrar Carro</button>
                                 </div>
