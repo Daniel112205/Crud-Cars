@@ -21,22 +21,20 @@ const cars = [
 const edit = false;
 //Mostrando los carros
 function showCars(dataCars) {
-    const container = document.getElementById('cars-container');
+    let container = document.getElementById('cars-container');
     container.innerHTML = '';
     dataCars.forEach((car) => {
-        const htmlCar = `<div class="col-md-5 d-inline-flex">
+        const htmlCar = `<div class="col-md-4">
                             <div class="card" style="width: 18rem;">
-                                <img src="${car.fotografia}" class="card-img-top img-thumbnail" alt="...">
+                                <img src="${car.fotografia}" class="img-thumbnail" alt="...">
                                 <div class="card-body">
                                   <h5 class="card-title text-center">${car.marca}</h5>
+                                  <span>Modelo: ${car.modelo}</span><br>
+                                  <span>Color: ${car.color}</span><br>                                 
+                                  <span>Año: ${car.año}</span><br>                                  
+                                  <span>Precio: $${car.precio}</span>
                                 </div>
-                                <ul class="list-group list-group-flush">
-                                  <li class="list-group-item text-center">Modelo: ${car.modelo}</li>
-                                  <li class="list-group-item text-center">Color: ${car.color}</li>                                 
-                                  <li class="list-group-item text-center">Año: ${car.año}</li>                                  
-                                  <li class="list-group-item text-center">Precio: $${car.precio}</li>
-                                </ul>
-                                <div class="card-body d-flex py-md-5">
+                                <div class="d-flex py-md-5">
                                     <button class="btn btn-warning" onclick="editCar(${car.id})">Editar Carro</button>
                                     <button class="btn btn-danger" onclick="deleteCar(${car.id})">Borrar Carro</button>
                                 </div>
@@ -82,27 +80,14 @@ function editCar(id) {
     //Obtenemos el ID del carro
     const index = cars.findIndex((car) => car.id === id);
     const car = cars[index];
+    //console.log(index);
+    document.getElementById('valor').value = car.id;
     document.getElementById('marca').value = car.marca;
     document.getElementById('modelo').value = car.modelo;
     document.getElementById('color').value = car.color;
     document.getElementById('anio').value = car.año;
     document.getElementById('precio').value = car.precio;
     document.getElementById('fotografia').value = car.fotografia;
-    const marca = document.getElementById('marca').value;
-    const modelo = document.getElementById('modelo').value;
-    const color = document.getElementById('color').value;
-    const anio = document.getElementById('anio').value;
-    const precio = document.getElementById('precio').value;
-    const url = document.getElementById('fotografia').value;
-    if(cars.id === id){
-        cars.marca = marca;
-        cars.modelo = modelo;
-        cars.color = color;
-        cars.anio = anio;
-        cars.precio = precio;
-        cars.fotografia = url;
-    
-    }
     showFormContainer();
     changeEditbutton();
 }
@@ -151,8 +136,18 @@ function getFormCarButton() {
 }
 //Get value button 
 function car() {
-    const buttonValue = getFormCarButton().value
+    const buttonValue = getFormCarButton().value;
     if(buttonValue === EDIT){
+        const value = document.getElementById('valor').value;
+        const index = cars.findIndex((car) => car.id === Number(value));
+        cars[index].marca = document.getElementById('marca').value;
+        cars[index].modelo = document.getElementById('modelo').value;
+        cars[index].color = document.getElementById('color').value;
+        cars[index].año = document.getElementById('anio').value;
+        cars[index].precio = document.getElementById('precio').value;
+        cars[index].fotografia = document.getElementById('fotografia').value;    
+        showCars(cars);
+        hideFormContainer();
         alert('Editamos')
     } else {
         addCar();
