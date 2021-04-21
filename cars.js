@@ -33,7 +33,7 @@ function showCars(dataCars) {
     let container = document.getElementById('cars-container');
     container.innerHTML = '';
     dataCars.forEach((car) => {
-        const htmlCar = `<div class="col-md-4 d-inline-flex">
+        const htmlCar = `<div class="col-md-4 d-inline-flex mb-4">
                             <div class="card" style="width: 18rem;">
                                 <img src="${car.fotografia}" class="roundend img-thumbnail" alt="...">
                                 <div class="card-body">
@@ -76,6 +76,7 @@ function addCar() {
     showCars(cars);
     resetFormContainer();
     hideFormContainer();
+    alert("Agregado correctamente");
 }
 //Para borrar el carro por ID
 function deleteCar(id) {
@@ -156,8 +157,9 @@ function car() {
         cars[index].precio = document.getElementById('precio').value;
         cars[index].fotografia = document.getElementById('fotografia').value;    
         showCars(cars);
+        resetFormContainer();
         hideFormContainer();
-        alert('Editamos')
+        alert('Editado correctamente');
     } else {
         addCar();
     }
