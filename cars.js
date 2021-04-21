@@ -33,8 +33,8 @@ function showCars(dataCars) {
     let container = document.getElementById('cars-container');
     container.innerHTML = '';
     dataCars.forEach((car) => {
-        const htmlCar = `<div class="col-md-4 d-inline-flex mb-4">
-                            <div class="card" style="width: 18rem;">
+        const htmlCar = `<div class="col-md-4 rounded d-inline-flex mt-4 mb-4">
+                            <div class="card bg-transparent" style="width: 18rem;">
                                 <img src="${car.fotografia}" class="roundend img-thumbnail" alt="...">
                                 <div class="card-body">
                                   <h5 class="card-title text-center">${car.marca}</h5>
@@ -43,7 +43,7 @@ function showCars(dataCars) {
                                   <span>Año: ${car.año}</span><br>                                  
                                   <span>Precio: $${car.precio}</span>
                                 </div>
-                                <div class="position-relative ml-2">
+                                <div class="position-relative ml-2 mb-2">
                                     <button class="btn btn-warning" onclick="editCar(${car.id})">Editar Carro</button>
                                     <button class="btn btn-danger" onclick="deleteCar(${car.id})">Borrar Carro</button>
                                 </div>

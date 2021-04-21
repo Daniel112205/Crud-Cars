@@ -13,7 +13,7 @@
         <div class="d-flex justify-content-end py-3">
             <button class="btn btn-primary" onclick="showFormContainer()">Agregar nuevo carro</button>
         </div>
-        <div class="card d-none" id="create-car-container">
+        <div class="card d-none mb-4" id="create-car-container">
             <div class="card-body">
                 <!-- Agregando un nuevo carro -->
                 <form id="car-form" action="/cars" class="row g-3" onsubmit="event.preventDefault(), car()">
@@ -46,9 +46,9 @@
                 </form>
             </div>
         </div>
-        <div class="container">
+        <div class="container bg-light rounded">
             <!-- Obteniendo los carros -->
-            <div class="row" id="cars-container">
+            <div class="row mt-4" id="cars-container">
                 
             </div>
         </div>
